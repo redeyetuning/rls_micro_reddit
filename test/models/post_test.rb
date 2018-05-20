@@ -9,10 +9,6 @@ class PostTest < ActiveSupport::TestCase
   	@post = Post.new(title: "Hello World", body: "Hello world, it's nice to meet you", user_id: 1)
   end
 
-  test "Post is valid" do
-  	assert @post.valid?
-  end
-
   test "Post title is not blank" do
   	@post.title = ""
   	assert_not @post.valid?
