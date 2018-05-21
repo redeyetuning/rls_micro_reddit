@@ -6,7 +6,13 @@ class CommentTest < ActiveSupport::TestCase
   # end
 
   def setup
-  	@comment = Comment.new(body: "Hello world, its nice to meet you", user_id: 1, post_id: 1)
+  	User.create(email: "redeyetuning@gmail.com", name:"Samuel", password: "foobar", password_confirmation: "foobar") 
+    Post.create(title: "Hello World", body: "Hello world, it's nice to meet you", user_id: 1)
+    @comment = Comment.new(body: "Hello world, its nice to meet you", user_id: 1, post_id: 1)
+  end
+
+  test "Comment is true" do
+    assert @comment.valid?
   end
 
   test "Comment body is not blank" do

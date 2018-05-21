@@ -6,7 +6,12 @@ class PostTest < ActiveSupport::TestCase
   # end
 
   def setup
+  	@user = User.create( email: "redeyetuning@gmail.com", name:"Samuel", password: "foobar", password_confirmation: "foobar") 
   	@post = Post.new(title: "Hello World", body: "Hello world, it's nice to meet you", user_id: 1)
+  end
+
+  test "Post is valid" do
+  	assert @post.valid? 
   end
 
   test "Post title is not blank" do
